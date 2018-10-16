@@ -1,0 +1,23 @@
+CREATE TABLE department (dept_id INT NOT NULL AUTO_INCREMENT,
+dept_code INT NOT NULL UNIQUE,
+dept_name VARCHAR(30) NOT NULL,
+PRIMARY KEY (dept_id));
+
+CREATE TABLE guest(guest_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(30),
+age INT,
+city VARCHAR(20),
+contact BIGINT,
+room_no INT,
+FOREIGN KEY (room_no) REFERENCES room(room_no));
+
+CREATE TABLE room (room_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+room_no int NOT NULL UNIQUE,
+capacity int,
+room_type int);
+
+CREATE TABLE staff (staff_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(30),
+role VARCHAR(20),
+dept_id INT,
+FOREIGN KEY (dept_id) REFERENCES department(dept_id));
