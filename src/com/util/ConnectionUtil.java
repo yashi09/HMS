@@ -6,12 +6,12 @@ import java.sql.SQLException;
 
 public class ConnectionUtil {
 	
-	Connection con = null;
+	private static Connection con = null;
 	
-	public Connection getConnection() {
+	public static Connection getConnection() {
 		try {
 			if(con==null || con.isClosed()) {
-				con = DriverManager.getConnection(url, user, password)
+				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -19,8 +19,15 @@ public class ConnectionUtil {
 		return con;
 	}
 	
-	
-	
+	public static void closeConnection() {
+		try {
+			if(con!=null || !con.isClosed()) {
+				con.close();
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	/*Class.forName("com.mysql.jdbc.Driver");  

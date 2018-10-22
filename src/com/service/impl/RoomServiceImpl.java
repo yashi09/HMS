@@ -35,8 +35,8 @@ public class RoomServiceImpl implements RoomService{
 	}
 
 	@Override
-	public void destroyRoom(int roomNo) {
-		roomDao.destroyRoomByRoomNo(roomNo);
+	public void vacateRoom(int roomNo) {
+		roomDao.vacateRoomByRoomNo(roomNo);
 	}
 
 	@Override

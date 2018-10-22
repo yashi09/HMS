@@ -7,6 +7,7 @@ public class Room {
 	private int capacity;
 	private List<Guest> guests;
 	private int roomType;
+	private int roomNo;
 	
 	public int getRoomId() {
 		return roomId;
@@ -31,6 +32,12 @@ public class Room {
 	}
 	public void setRoomType(int roomType) {
 		this.roomType = roomType;
+	}
+	public int getRoomNo() {
+		return roomNo;
+	}
+	public void setRoomNo(int roomNo) {
+		this.roomNo = roomNo;
 	}
 	
 }

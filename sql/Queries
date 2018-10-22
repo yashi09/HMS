@@ -19,5 +19,21 @@ room_type int);
 CREATE TABLE staff (staff_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30),
 role VARCHAR(20),
-dept_id INT,
-FOREIGN KEY (dept_id) REFERENCES department(dept_id));
+dept_code INT,
+FOREIGN KEY (dept_code) REFERENCES department(dept_code));
+
+CREATE TABLE room_guest (room_guest_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+room_id INT
+room_no INT,
+guest_id INT,
+FOREIGN KEY (room_id) REFERENCES room(room_id),
+FOREIGN KEY (room_no) REFERENCES room(room_no)
+FOREIGN KEY (guest_id) REFERENCES guest(guest_id));
+
+insert into room (room_no,capacity,room_type)values (101,4,1);
+insert into guest (name,age,city,contact,room_no) values('Smith',32,'NYC',654368908,101);
+insert into guest (name,age,city,contact,room_no) values('Emily',34,'NYC',273968908,101);
+insert into room_guest (room_id,room_no,guest_id) values (1,101,1);
+select * from room r where r.room_no NOT IN(select d.room_no from room_guest d); //all vacant rooms
+
+select * from guest where guest_id IN (select guest_id from room_guest where room_id IN (?)) // guests in particular room

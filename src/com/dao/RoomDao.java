@@ -10,7 +10,7 @@ public interface RoomDao {
 	public List<Room> getRoomsByCapacity(int capacity);
 	public List<Room> getRoomsByType(int type);
 	public void updateRoom(Room room);
-	public void destroyRoomByRoomNo(int roomNo);
+	public void vacateRoomByRoomNo(int roomNo);
 	public Room getRoomByRoomNo(int roomNo);
 	public void addRoomToHotel(Room room);
 }

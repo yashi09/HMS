@@ -12,7 +12,7 @@ public interface RoomService {
 	public List<Room> getRoomsByCapacity(int capacity);
 	public List<Room> getRoomsByType(int type);
 	public void updateRoom(Room room);
-	public void destroyRoom(int roomNo);
+	public void vacateRoom(int roomNo);
 	public Room getRoom(int roomNo);
 	public void addRoom(Room room);
 }

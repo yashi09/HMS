@@ -5,7 +5,7 @@ import java.util.List;
 public class Department {
 	private int deptId;
 	private List<Staff> staff;
-	private String deptCode;
+	private int deptCode;
 	private String deptName;
 	
 	public int getDeptId() {
@@ -20,10 +20,10 @@ public class Department {
 	public void setStaff(List<Staff> staff) {
 		this.staff = staff;
 	}
-	public String getDeptCode() {
+	public int getDeptCode() {
 		return deptCode;
 	}
-	public void setDeptCode(String deptCode) {
+	public void setDeptCode(int deptCode) {
 		this.deptCode = deptCode;
 	}
 	public String getDeptName() {
