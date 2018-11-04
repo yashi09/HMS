@@ -10,6 +10,12 @@ public class ConnectionUtil {
 	
 	public static Connection getConnection() {
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
 			if(con==null || con.isClosed()) {
 				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
 			}
