@@ -47,7 +47,7 @@ public class StaffDaoImpl implements StaffDao{
 	}
 
 	@Override
-	public List<Staff> getStaffByDept(int deptCode) {
+	public List<Staff> getStaffOfDept(int deptCode) {
 		con = ConnectionUtil.getConnection();
 		List<Staff> staffList = new ArrayList<Staff>();
 		String sql = "select * from staff where dept_code = "+deptCode;
@@ -59,6 +59,7 @@ public class StaffDaoImpl implements StaffDao{
 				staffMember.setName(rs.getString("name"));
 				staffMember.setRole(rs.getString("role"));
 				staffMember.setStaffId(rs.getInt("staff_id"));
+				
 				Department department = new Department();
 				department.setDeptCode(deptCode);
 				staffMember.setDepartment(department);

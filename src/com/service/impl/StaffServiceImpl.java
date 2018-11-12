@@ -17,7 +17,7 @@ public class StaffServiceImpl implements StaffService{
 
 	@Override
 	public List<Staff> getStaffByDept(int deptCode) {
-		return staffDao.getStaffByDept(deptCode);
+		return staffDao.getStaffOfDept(deptCode);
 	}
 
 	@Override

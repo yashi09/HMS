@@ -44,6 +44,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
 				department.setDeptCode(rs.getInt("dept_code"));
 				department.setDeptId(rs.getInt("dept_id"));
 				department.setDeptName(rs.getString("dept_name"));
+				System.out.println(department.getDeptId()+",,,"+department.getDeptCode()+",,"+department.getDeptName());
 			}
 		} catch(Exception e){
 			e.printStackTrace();
@@ -52,9 +53,19 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	}
 
 	@Override
-	public void updateDepatrment(Department department) {
-		// TODO Auto-generated method stub
-
+	public void updateDepartment(Department department) {
+		if(connection==null)
+			connection = ConnectionUtil.getConnection();
+		String sql = "update department set dept_code=?,dept_name=? where dept_id=?";
+		try{
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, department.getDeptCode());
+			stmt.setString(2, department.getDeptName());
+			stmt.setInt(3, department.getDeptId());
+			stmt.executeUpdate();
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
 	}
 
 	@Override

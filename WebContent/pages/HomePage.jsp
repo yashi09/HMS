@@ -8,16 +8,16 @@
 </head>
 <body>
 	<form action="<% out.print(request.getContextPath());%>/controller" method="get">
-		<input type="hidden" name="dest" value="roomDetails" /> <input type="submit" value="Rooms">
+		<input type="hidden" name="dest" value="roomHome" /> <input type="submit" value="Rooms">
 	</form>
 	<form action="<%out.println(request.getContextPath());%>/controller">
-		<input type="hidden" name="dest" value="staffDetails" /> <input type="submit" value="Staff">
+		<input type="hidden" name="dest" value="staffHome" /> <input type="submit" value="Staff">
 	</form>
 	<form action="<%out.println(request.getContextPath());%>/controller">
-		<input type="hidden" name="dest" value="deptDetails" /> <input type="submit" value="Departments">
+		<input type="hidden" name="dest" value="viewDepts" /> <input type="submit" value="Departments">
 	</form>
 	<form action="<%out.println(request.getContextPath());%>/controller">
-		<input type="hidden" name="dest" value="guestDetails"> <input type="submit" value="Guests">
+		<input type="hidden" name="dest" value="guestsHome"> <input type="submit" value="Guests">
 	</form>
 </body>
 </html>

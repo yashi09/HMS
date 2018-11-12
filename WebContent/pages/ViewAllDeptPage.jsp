@@ -43,7 +43,7 @@
 					href="<%out.print(request.getContextPath());%>/controller?dest=editDept&deptId=<%out.print(dept.getDeptId());%>">Edit</a>
 					<!-- edit --></td>
 				<td>
-				<a href="<%out.print(request.getContextPath());%>/controller?dest=viewStaffOfDept&deptId=<%out.print(dept.getDeptId());%>">Working Staff</a>
+				<a href="<%out.print(request.getContextPath());%>/controller?dest=viewStaffOfDept&deptCode=<%out.print(dept.getDeptCode());%>">Working Staff</a>
 						<!-- view staff -->
 				</td>
 				<td>

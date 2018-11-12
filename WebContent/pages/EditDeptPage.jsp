@@ -9,7 +9,8 @@
 </head>
 <body>
 	<%Department dept = (Department)request.getAttribute("dept");%>
-	<form action="<%out.print(request.getContextPath());%>/controller?deptId=<%out.print(dept.getDeptId());%>">
+	<form action="<%out.print(request.getContextPath());%>/controller">
+		<input type="hidden" name="deptId" value="<%out.print(dept.getDeptId());%>">
 		<input type="hidden" name="dest" value="updateDept">
 		<input type="text" name="deptName" value=<%out.print(dept.getDeptName());%> title="dept name">
 		<input type="text" name="deptCode" value="<%out.print(dept.getDeptCode());%>" title="dept code">

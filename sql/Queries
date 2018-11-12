@@ -11,10 +11,22 @@ room_type int);
 CREATE TABLE guest(guest_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30),
 age INT,
-city VARCHAR(20),
+address VARCHAR(80),
 contact BIGINT,
 room_no INT,
 FOREIGN KEY (room_no) REFERENCES room(room_no));
+
+
+CREATE TABLE staff (staff_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(30),
+contact BIGINT,
+age INT,
+address VARCHAR(80),
+role VARCHAR(20),
+dept_code INT,
+FOREIGN KEY (dept_code) REFERENCES department(dept_code));
+
+
 
 CREATE TABLE staff (staff_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30),

@@ -35,7 +35,7 @@ public class GuestDaoImpl implements GuestDao{
 				guest.setGuestId(rs.getInt("guest_id"));
 				guest.setName(rs.getString("name"));
 				guest.setAge(rs.getInt(rs.getInt("age")));
-				guest.setCity(rs.getString("city"));
+				guest.setAddress(rs.getString("address"));
 				guest.setContactNo(rs.getLong("contact"));
 				Room room = new Room();
 				stmt1.setInt(0, guest.getGuestId());
@@ -84,7 +84,7 @@ public class GuestDaoImpl implements GuestDao{
 					Guest guest = new Guest();
 					guest.setGuestId(rs1.getInt("guest_id"));
 					guest.setAge(rs1.getInt("age"));
-					guest.setCity(rs1.getString("city"));
+					guest.setAddress(rs1.getString("address"));
 					guest.setContactNo(rs1.getLong("contact"));
 					guest.setName(rs1.getString("name"));
 					guests.add(guest);
@@ -116,7 +116,7 @@ public class GuestDaoImpl implements GuestDao{
 			while(rs.next()) {
 				guest = new Guest();
 				guest.setAge(rs.getInt("age"));
-				guest.setCity(rs.getString("city"));
+				guest.setAddress(rs.getString("address"));
 				guest.setContactNo(rs.getLong("contact"));
 				guest.setGuestId(rs.getInt("guest_id"));
 				guest.setName(rs.getString("name"));
@@ -146,12 +146,12 @@ public class GuestDaoImpl implements GuestDao{
 	@Override
 	public void addGuestToRoom(Guest guest){
 		con = ConnectionUtil.getConnection();
-		String sql = "insert into guest (name,age,city,contact,room_no) values(?,?,?,?,?)";
+		String sql = "insert into guest (name,age,address,contact,room_no) values(?,?,?,?,?)";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, guest.getName());
 			stmt.setInt(2, guest.getAge());
-			stmt.setString(3, guest.getCity());
+			stmt.setString(3, guest.getAddress());
 			stmt.setLong(4, guest.getContactNo());
 			stmt.setInt(5, guest.getRoom().getRoomNo());
 			ResultSet rs = stmt.executeQuery();
@@ -182,12 +182,12 @@ public class GuestDaoImpl implements GuestDao{
 	@Override
 	public void updateGuest(Guest guest) {
 		con = ConnectionUtil.getConnection();
-		String sql = "update guest set name=?, age=?, city=?, contact=?, room_no=? where guest_id = ?";
+		String sql = "update guest set name=?, age=?, address=?, contact=?, room_no=? where guest_id = ?";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, guest.getName());
 			stmt.setInt(2, guest.getAge());
-			stmt.setString(3, guest.getCity());
+			stmt.setString(3, guest.getAddress());
 			stmt.setLong(4, guest.getContactNo());
 			stmt.setInt(5, guest.getRoom().getRoomNo());
 			stmt.setInt(6, guest.getGuestId());
@@ -196,8 +196,6 @@ public class GuestDaoImpl implements GuestDao{
 			e.printStackTrace();
 		} finally {
 			ConnectionUtil.closeConnection();
-		}
-		
+		}	
 	}
-
 }

@@ -6,7 +6,7 @@ public class Guest {
 	private int guestId;
 	private String name;
 	private int age;
-	private String city;
+	private String address;
 	private long contactNo;
 	private Room room;
 	private Date checkIn;
@@ -30,11 +30,11 @@ public class Guest {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getCity() {
-		return city;
+	public String getAddress() {
+		return address;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public long getContactNo() {
 		return contactNo;

@@ -59,7 +59,7 @@ public class RoomDaoImpl implements RoomDao{
 				while(rs1.next()) {
 					Guest guest = new Guest();
 					guest.setAge(rs1.getInt("age"));
-					guest.setCity(rs1.getString("city"));
+					guest.setAddress(rs1.getString("address"));
 					guest.setContactNo(rs1.getLong("contact"));
 					guest.setGuestId(rs1.getInt("guest_id"));
 					guest.setName(rs1.getString("name"));
