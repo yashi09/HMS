@@ -70,12 +70,24 @@ public class Controller extends HttpServlet{
 			int deptCode = Integer.valueOf(req.getParameter("deptCode"));
 			List<Staff> staffOfDept = staffService.getStaffByDept(deptCode);
 			req.setAttribute("staffList", staffOfDept);
+			req.setAttribute("dept", deptService.getDepartmentByCode(deptCode));
 			req.getRequestDispatcher("/pages/StaffOfDeptPage.jsp").forward(req, resp);
 		} else if(dest!=null && dest.equals("deleteDept")){
 			int deptId = Integer.valueOf(req.getParameter("deptId"));
 			deptService.deleteDepartment(deptId);
 			req.setAttribute("deptList", deptService.getAllDepartments());
 			req.getRequestDispatcher("/pages/ViewAllDeptPage.jsp").forward(req, resp);
+		} else if(dest!=null && dest.equals("editStaff")){
+			int staffId = Integer.valueOf(req.getParameter("staffId"));
+			req.setAttribute("staff", staffService.getStaff(staffId));
+			req.getRequestDispatcher("/pages/EditStaffPage.jsp").forward(req, resp);
+		} else if(dest!=null && dest.equals("deleteStaff")){
+			int staffId = Integer.valueOf(req.getParameter("staffId"));
+			staffService.removeStaff(staffId);
+			int deptCode = Integer.valueOf(req.getParameter("deptCode"));
+			List<Staff> staffList = staffService.getStaffByDept(deptCode);
+			req.setAttribute("staffList",staffList);
+			req.getRequestDispatcher("/pages/StaffOfDeptPage.jsp").forward(req, resp);
 		}
 	}
 	@Override
